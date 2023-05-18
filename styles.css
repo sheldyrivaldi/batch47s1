@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #E3E7EB;
+}
+
+.container {
+    display: flex;
+    width: 1150px;
+    background-color:#FFFFFF;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin: 70px auto;
+    box-sizing: border-box;
+    box-shadow: 2px 7px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    padding-top: 50px;
+}
+
+.main, .social-media{
+    width: 50%;
+
+}
+
+.main p {
+    text-align: justify;
+    margin-bottom: 40px;
+
+}
+
+.main .contact {
+    text-decoration: none;
+    padding: 7px 30px;
+    background-color: black;
+    color: white;
+    border-radius: 20px;
+}
+.main .download-cv {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    width: 145px;
+    height: 30px;
+    margin-top: 20px;
+}
+.main a {
+    text-decoration: none;
+    color: black;
+}
+.download-cv img {
+    width: 30px;
+}
+
+.social-media {
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 50px auto;
+}
+.social-media a img{
+    width: 50px;
+    margin: 0 10px;
+}
+
+.card {
+    width: 30%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 2px 7px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 50px;
+}
+
+.card img {
+    width: 100%;
+    height: 70%;
+}
+
+.card h1{
+    margin: 10px 0 0 0;
+}
+
+.card p{
+    margin: 0 0 10px 0;
+}
