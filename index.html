@@ -1,39 +1,59 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Card</title>
-    <link rel="stylesheet" href="styles.css" />
+    <title>Personal Web</title>
+    <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
-    <div class="container">
-
-        <!-- Container Main -->
-        <div class="main">
-            <h1>Hi Welcome to my hut</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque libero totam, at accusamus, mollitia, alias quod aspernatur quisquam animi neque adipisci. Sint aperiam, culpa quae commodi animi recusandae sequi perspiciatis ducimus, dicta porro corporis ad! Impedit sapiente iusto laudantium consequatur, esse voluptatibus vitae exercitationem culpa maxime dicta, reprehenderit distinctio, praesentium sed hic necessitatibus iste optio suscipit nulla illo! Ullam commodi consequatur tenetur exercitationem doloremque deleniti atque adipisci fugit debitis eos!</p>
-            <a href="#" class="contact">contact</a>
-            <!-- DOwnload CV button  -->
-            <div class="download-cv">
-                <a href="#" >download CV</a>
-                <img src="images/icon-d1.png" alt="download-cv" >
+    <!-- NAVBAR SECTION -->
+    <section id="navbar">
+        <div class="navbar-container">
+            <!-- Navbar Left -->
+            <div class="navbar-left">
+                <ul>
+                    <li><img src="assets/images/logo.png" alt="logo" class="logo"/></li>
+                    <li><a class="active" href="index.html">Home</a></li>
+                    <li><a href="myproject.html">My Project</a></li>
+                </ul>
+            </div>
+            
+            <!-- Navbar Right -->
+            <div class="navbar-right">
+                <a href="contact.html">Contact Me</a>
             </div>
         </div>
+    </section>
 
-        <!-- Container social media -->
-        <div class="social-media">
-            <a href="#"><img src="images/linkedin.png" alt="linkedin" /></a>
-            <a href="#"><img src="images/instagram.png" alt="instagram" /></a>
-            <a href="#"><img src="images/facebook.png" alt="facebook" /></a>
-            <a href="#"><img src="images/twitter.png" alt="twitter" /></a>
-        </div>
-        
-        <!-- Container card -->
-        <div class="card">
-            <img src="images/foto.jpg" alt="foto-profil" />
-            <h1>Sheldy Rivaldi</h1>
-            <p>Fullstack Developer</p>
-        </div>
-
-    </div>
+    <!-- CARDBOARD SECTION -->
+    <section id="cardboard">
+            <div class="cardboard-left">
+                <div class="cardboard-main">
+                    <h1>Hi Welcome to my hut</h1>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque libero totam, at accusamus, mollitia, alias quod aspernatur quisquam animi neque adipisci. Sint aperiam, culpa quae commodi animi recusandae sequi perspiciatis ducimus, dicta porro corporis ad! Impedit sapiente iusto laudantium consequatur, esse voluptatibus vitae exercitationem culpa maxime dicta, reprehenderit distinctio, praesentium sed hic necessitatibus iste optio suscipit nulla illo!</p>                
+                </div>
+    
+                <div class="cardboard-download">
+                    <a href="contact.html" class="cardboard-contact">contact</a>
+                    <div class="cv">
+                        <a href="https://drive.google.com/file/d/16wPUIjW_fTciGAWk_pyJ-YK4o_ytZ7Rk/view?usp=sharing" target="_blank">download CV</a>
+                        <a href="https://drive.google.com/file/d/16wPUIjW_fTciGAWk_pyJ-YK4o_ytZ7Rk/view?usp=sharing" target="_blank"><img src="assets/images/icon-d1.png" alt="download-cv" ></a>
+                    </div>
+                </div>
+    
+                <div class="cardboard-sosmed">
+                    <a href="https://www.linkedin.com/in/sheldyrivaldi/" target="_blank"><img src="assets/images/linkedin.png" alt="linkedin" /></a>
+                    <a href="https://www.instagram.com/sheldyrivaldi/" target="_blank"><img src="assets/images/instagram.png" alt="instagram" /></a>
+                    <a href="https://web.facebook.com/sheldyrivaldi17" target="_blank"><img src="assets/images/facebook.png" alt="facebook" /></a>
+                    <a href="https://twitter.com/sheldyrivaldi" target="_blank"><img src="assets/images/twitter.png" alt="twitter" /></a>
+                </div>
+            </div>
+            <div class="cardboard-right">
+                <div class="card">
+                    <img src="assets/images/foto.jpg" alt="foto-profil" />
+                    <h1>Sheldy Rivaldi</h1>
+                    <p>Fullstack Developer</p>
+                </div>
+            </div>
+    </section>
 </body>
 </html>

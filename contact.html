@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Personal Web</title>
+    <link rel="stylesheet" href="css/contact.css"/>
+    <link rel="stylesheet" href="css/styles.css"/>
+</head>
+<body>
+     <!-- NAVBAR SECTION -->
+     <section id="navbar">
+        <div class="navbar-container">
+            <!-- Navbar Left -->
+            <div class="navbar-left">
+                <ul>
+                    <li><img src="assets/images/logo.png" alt="logo" class="logo"/></li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="myproject.html">My Project</a></li>
+                </ul>
+            </div>
+            
+            <!-- Navbar Right -->
+            <div class="navbar-right">
+                <a href="contact.html">Contact Me</a>
+            </div>
+        </div>
+    </section>
+    
+    <section id="contact">
+        <div class="contact-container">
+            <div class="contact-form">
+                <h1>GET IN TOUCH</h1>
+                <form>
+                    <div class="contact-form-input">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" />
+                    </div>
+                    <div class="contact-form-input">
+                        <label for="email">Email</label>
+                        <input type="emil" id="email" />
+                    </div>
+                    <div class="contact-form-input">
+                        <label for="phone-number">Phone Number</label>
+                        <input type="number" id="phone-number" />
+                    </div>
+                    <div class="contact-form-input">
+                        <label for="subject">Subject</label>
+                        <select id="subject">
+                            <option value="" hidden></option>
+                            <option value="Frontend Developer">Frontend Developer</option>
+                            <option value="Backend Developer">Backend Developer</option>
+                            <option value="Fullstack Developer">Fullstack Developer</option>
+                        </select>
+                    </div>
+                    <div class="contact-form-input">
+                        <label for="message">Your Message</label>
+                        <textarea id="message"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="contact-submit">
+                <button type="button">submit</button>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
