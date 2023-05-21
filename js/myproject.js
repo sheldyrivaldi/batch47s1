@@ -50,7 +50,20 @@ function submitData(event) {
     };
     dataProject.push(data);
     renderProject();
+    
+    // Mengosongkan data untuk submit berikutnya
     dataTechnology = []
+
+    // Mengosongkan nilai-nilai input
+    document.getElementById("project-name").value = "";
+    document.getElementById("start-date").value = "";
+    document.getElementById("end-date").value = "";
+    document.getElementById("description").value = "";
+    document.getElementById("nodejs").checked = false;
+    document.getElementById("nextjs").checked = false;
+    document.getElementById("reactjs").checked = false;
+    document.getElementById("typescript").checked = false;
+    document.getElementById("add-project-upload-image").value = "";
 }
 
 function renderProject() {
