@@ -29,6 +29,7 @@
     box-shadow: 2px 7px 10px rgba(0, 0, 0, 0.3);
     border: 0;
     border-radius: 5px;
+    resize: none;
 }
 .contact-submit{
     text-align: end;
