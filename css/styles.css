@@ -95,6 +95,9 @@ body {
     color: white;
     border-radius: 20px;
 }
+.cardboard-download .cardboard-contact:hover{
+    background-color: gray;
+}
 .cardboard-download .cv {
     display: flex;
     justify-content: space-between;
