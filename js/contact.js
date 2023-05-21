@@ -20,16 +20,6 @@ function submitData(){
         return alert("Subject tidak boleh kosong!");
     }
 
-    let data = {
-        name,
-        email,
-        phone,
-        subject,
-        message
-    }
-
-    console.log(data)
-
     //Link "mailto"
     let recivedEmail = "sheldyrivaldi@gmail.com";
     let enter = "\n\n"
