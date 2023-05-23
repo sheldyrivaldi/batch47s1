@@ -19,7 +19,12 @@ function submitData(event) {
     let mulai = new Date(startDate);
     let akhir = new Date(endDate);
     let selisih = akhir.getTime() - mulai.getTime();
-    let durasi = Math.ceil(selisih / (1000 * 3600 * 24 * 30));
+    let day = selisih / (1000 * 60 * 60 * 24)
+    let months = Math.floor(day / 30)
+    let years = Math.floor(day / 365)
+    let days = Math.floor((day%30) % 7)
+    let weeks = Math.floor((day%30) / 7)
+    let durasi = `${years} Tahun ${months} Bulan ${weeks} Minggu ${days} Hari`
 
     // Cek Checkbox
     if (nodejs.checked) {
@@ -71,7 +76,7 @@ function renderProject() {
                     </div>
                     <div class="project-list-title">
                         <p class="list-title"><a target="_blank" href="project-detail.html">${dataProject[i].title}</a></p>
-                        <p class="list-duration">durasi: ${dataProject[i].durasi} bulan</p>
+                        <p class="list-duration">durasi: ${dataProject[i].durasi}</p>
                     </div>
                     <div>
                         <p class="list-description">${dataProject[i].description}</p>
