@@ -60,7 +60,24 @@ body {
     background-color: grey;
 }
 
-
+.navbar-humberger{
+    display: none;
+}
+.navbar-humberger button img{
+    width: 20px;
+    border: none;
+}
+.navbar-humberger-list{
+    background-color: rgb(155, 152, 152);
+    display: none;
+}
+.navbar-humberger-list a{
+    color: black;
+    display: block;
+    text-align: center;
+    justify-content: space-between;
+    padding: 15px 0;
+}
 
 /* ----------CARDBOARD SECTION---------- */
 #cardboard {
@@ -151,4 +168,32 @@ body {
 
 .card p{
     margin: 0 0 10px 0;
+}
+
+@media only screen and (max-width: 1080px){
+    .navbar-humberger{
+        display: block;
+    }
+    .navbar-container{
+        width: 90vw;
+        height: 5vh;
+    }
+    .collapse {
+        display: none;
+    }
+    #cardboard {
+        display: flex;
+        width: 90vw;
+        flex-direction: column;
+        justify-content: center;
+        margin: 5vh 5vw;
+    }
+    .cardboard-left, .cardboard-right{
+        width: 100%;
+        padding: 5% 10%;
+    }
+    .cardboard-download{
+        font-size: .8rem;
+        margin-top: 5vh;
+    }
 }

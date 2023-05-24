@@ -12,17 +12,25 @@
             <div class="navbar-left">
                 <ul>
                     <li><img src="assets/images/logo.png" alt="logo" class="logo"/></li>
-                    <li><a class="active" href="index.html">Home</a></li>
-                    <li><a href="myproject.html">My Project</a></li>
+                    <li><a class="active collapse" href="index.html">Home</a></li>
+                    <li><a href="myproject.html" class="collapse">My Project</a></li>
                 </ul>
             </div>
             
             <!-- Navbar Right -->
-            <div class="navbar-right">
+            <div class="navbar-right collapse">
                 <a href="contact.html">Contact Me</a>
+            </div>
+            <div class="navbar-humberger">
+                <button type="button" onclick="navbarSwitch()"><img src="assets/images/menu.png" alt="menu"></button>
             </div>
         </div>
     </section>
+    <div class="navbar-humberger-list" id="navbar-humberger-list">
+        <a href="index.html" class="humberger-active">Home</a>
+        <a href="myproject.html">My Project</a>
+        <a href="contact.html">Contact Me</a>
+    </div>
 
     <!-- CARDBOARD SECTION -->
     <section id="cardboard">
@@ -55,5 +63,6 @@
                 </div>
             </div>
     </section>
+    <script src="js/index.js"></script>
 </body>
 </html>
