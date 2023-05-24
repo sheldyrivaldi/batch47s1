@@ -1,5 +1,4 @@
 let humbergerIsOpen = false;
-console.log("bisa")
 
 function navbarSwitch(){
    const humbergerNavbarList =  document.getElementById("navbar-humberger-list");

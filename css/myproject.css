@@ -1,3 +1,5 @@
+
+/* ADD PROJECT SECTION */
 #add-project{
     display: flex;
     justify-content: center;
@@ -108,7 +110,7 @@ form h1{
 
 
 
-/* Project List */
+/* PROJECT LIST SECTION */
 #project{
     background-color: white;
     display: flex;
@@ -124,7 +126,7 @@ form h1{
 }
 .project-list{
     display: flex;
-    justify-content: baseline;
+    justify-content: flex-start;
     flex-wrap: wrap;
     margin-top: 35px;
 }
@@ -133,11 +135,12 @@ form h1{
     display: flex;
     justify-content: center;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.4);
-    border-radius: 0 0 10px 10px;
+    border-radius: 10px;
     margin: 18px;
 }
 .project-items-container{
     width: 90%;
+    margin-top: 20px;
     overflow: hidden;
 }
 .project-list-image{
@@ -169,7 +172,6 @@ form h1{
     width: 100%;
     height: 60px;
     overflow: hidden;
-    display: flex;
 }
 .list-description{
     margin: 0;
@@ -201,4 +203,80 @@ form h1{
 }
 .project-list-button button:hover{
     background-color: grey;
+}
+
+/* Responsive Website */
+@media only screen and (max-width: 900px){
+    .add-project-container{
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+    .add-project-container, .project-container{
+        width: 85vw;
+    }
+    .project-container{
+        margin-top: 10px;
+        margin-bottom: 5px;
+    }
+    .project-container h1{
+        margin-top: 20px;
+        margin-bottom: 10px;
+        font-size: 18px;
+    }
+    .project-list{
+        justify-content: space-between;
+        margin-top: 0;
+    }
+    .project-list-image img{
+        width: 100%;
+        height: 14vh;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+    .project-items{
+        width:  45%;
+        justify-content: center;
+        margin: 10px 0;
+    }
+    .project-items-container{
+        margin-top: 5px;
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+    .project-items-container .technology img{
+        width: 15px;
+        margin-right: 5px;
+    }
+    .project-list-title .list-title a{
+        color: black;
+        font-size: 8px;
+    }
+    .project-list-title .list-duration{
+        font-size: 6px;
+    }
+    .description{
+        margin-top: 10px;
+        width: 100%;
+        height: 44;
+        overflow: hidden;
+    }
+    .list-description{
+        font-size: 8px;
+    }
+    .project-list-button{
+        margin-top: 10px;
+        margin-bottom: 15px;
+        justify-content: space-evenly;
+    }
+    .project-list-button button{
+        width: 40%;
+        height: 18px;
+        font-size: 8px;
+    }
+    .project-items-container .technology{
+        margin-top: 10px;
+    }
+    .project-list-title .list-title{
+        margin-top: 10px;
+    }
 }

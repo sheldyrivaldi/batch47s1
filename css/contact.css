@@ -46,3 +46,10 @@
 .contact-submit button:hover{
     background-color: grey;
 }
+
+
+@media only screen and (max-width: 900px) {
+    .contact-container{
+        width: 80vw;
+    }
+}

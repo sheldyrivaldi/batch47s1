@@ -7,13 +7,14 @@ body {
     font-family: 'Poppins', sans-serif;
     background-color: #E3E7EB;
     margin: 0;
+    padding: 0;
 }
 
 
 /* ----------NAVBAR SECTION---------- */
 
 #navbar {
-    width: 100%;
+    width: 100vw;
     margin: 0;
     display: flex;
     align-items: center;
@@ -63,12 +64,17 @@ body {
 .navbar-humberger{
     display: none;
 }
+.navbar-humberger button {
+    border: none;
+    background-color: white;
+}
 .navbar-humberger button img{
     width: 20px;
-    border: none;
+    background-color: white;
 }
 .navbar-humberger-list{
-    background-color: rgb(155, 152, 152);
+    width: 100vw;
+    background-color: #D3D3D3;
     display: none;
 }
 .navbar-humberger-list a{
@@ -170,7 +176,8 @@ body {
     margin: 0 0 10px 0;
 }
 
-@media only screen and (max-width: 1080px){
+/* Responsive ketika width dibawah 1080px */
+@media only screen and (max-width: 900px){
     .navbar-humberger{
         display: block;
     }
@@ -193,7 +200,19 @@ body {
         padding: 5% 10%;
     }
     .cardboard-download{
-        font-size: .8rem;
         margin-top: 5vh;
     }
+    .cardboard-left .cardboard-sosmed {
+        justify-content: center;
+    }
+    .cardboard-sosmed a img{
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .cardboard-right{
+        padding-bottom: 30px;
+        padding-right: 0;
+        padding-left: 0;
+    }
+
 }

@@ -68,27 +68,40 @@ function renderProject() {
             technologyImages += `<img src="assets/images/${dataProject[i].dataTechnology[j]}.png" alt="${dataProject[i].dataTechnology[j]}">`;
         }
 
-        document.getElementById("project-list").innerHTML += `
-            <div class="project-items">
-                <div class="project-items-container">
-                    <div class="project-list-image">
-                        <img src="${dataProject[i].imageUrl}" alt="project-list">
-                    </div>
-                    <div class="project-list-title">
-                        <p class="list-title"><a target="_blank" href="project-detail.html">${dataProject[i].title}</a></p>
-                        <p class="list-duration">durasi: ${dataProject[i].durasi}</p>
-                    </div>
-                    <div>
-                        <p class="list-description">${dataProject[i].description}</p>
-                    </div>
-                    <div class="technology">
-                        ${technologyImages}
-                    </div>
-                    <div class="project-list-button">
-                        <button class="edit" type="button">edit</button>
-                        <button class="delete" type="button">delete</button>
-                    </div>
+        document.getElementById("project-list").innerHTML += 
+            ` <div id="project-items" class="project-items">
+            <div class="project-items-container">
+                <div class="project-list-image">
+                    <img src="${dataProject[i].imageUrl}" alt="project-list">
                 </div>
-            </div>`;
+                <div class="project-list-title">
+                    <p class="list-title"><a target="_blank" href="project-detail.html">${dataProject[i].title}s</a></p>
+                    <p class="list-duration">durasi : ${dataProject[i].durasi}</p>
+                </div>
+                <div class="description">
+                    <p class="list-description">${dataProject[i].description}</p>
+                </div>
+                <div class="technology">
+                    ${technologyImages}
+                </div>
+                <div class="project-list-button">
+                    <button class="edit" type="button">edit</button>
+                    <button class="delete" type="button">delete</button>
+                </div>
+            </div>
+        </div>`;
     }
+}
+
+let humbergerIsOpen = false;
+
+function navbarSwitch(){
+   const humbergerNavbarList =  document.getElementById("navbar-humberger-list");
+   if (!humbergerIsOpen){
+        humbergerNavbarList.style.display = "block";
+        humbergerIsOpen = true;
+   } else {
+        humbergerNavbarList.style.display = "none";
+        humbergerIsOpen = false;
+   }
 }
