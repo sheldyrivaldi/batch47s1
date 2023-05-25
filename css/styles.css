@@ -84,6 +84,17 @@ body {
     justify-content: space-between;
     padding: 15px 0;
 }
+.contact-humberger{
+    display: flex;
+    justify-content: center;
+    padding: 15px 0;
+}
+.contact-humberger a{
+    background-color: black;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 5px;
+}
 
 /* ----------CARDBOARD SECTION---------- */
 #cardboard {
@@ -183,7 +194,7 @@ body {
     }
     .navbar-container{
         width: 90vw;
-        height: 5vh;
+        height: 7vh;
     }
     .collapse {
         display: none;
@@ -195,9 +206,13 @@ body {
         justify-content: center;
         margin: 5vh 5vw;
     }
-    .cardboard-left, .cardboard-right{
+    .cardboard-left{
         width: 100%;
-        padding: 5% 10%;
+        padding: 10% 10% 5% 10%;
+    }
+    .cardboard-right{
+        width: 100%;
+        padding: 5% 10% 10% 10%;
     }
     .cardboard-download{
         margin-top: 5vh;
@@ -208,11 +223,6 @@ body {
     .cardboard-sosmed a img{
         margin-left: 10px;
         margin-right: 10px;
-    }
-    .cardboard-right{
-        padding-bottom: 30px;
-        padding-right: 0;
-        padding-left: 0;
     }
 
 }

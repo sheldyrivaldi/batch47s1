@@ -4,7 +4,6 @@
 }
 #project-detail-container{
     width: 1150px;
-    /* background-color: aqua; */
     margin-top: 50px;
     margin-bottom: 50px;
 }
@@ -38,8 +37,7 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
-    width: 90%;
-    /* background-color: red; */
+    width: 100%
 }
 .duration-title{
     font-size: 20px;
@@ -97,4 +95,30 @@
 }
 .description p{
     margin:0;
+}
+
+@media only screen and (max-width: 900px){
+    #project-detail-container{
+        width: 85vw;
+    }
+    .project-detail-item{
+        width: 100%;
+    }
+    .image-detail{
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+    }
+    .image-detail .image, .image-detail .detail{
+        width: 100%;
+    }
+    .image-detail .detail{
+        margin-top: 30px;
+    }
+    .technology-list{
+        margin-top: 10px;
+    }
+    .project-detail-item h1{
+        font-size: 30px;
+    }
 }

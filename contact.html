@@ -8,33 +8,35 @@
     <link rel="stylesheet" href="css/styles.css"/>
 </head>
 <body>
-        <!-- NAVBAR SECTION -->
-        <section id="navbar">
-            <div class="navbar-container">
-                <!-- Navbar Left -->
-                <div class="navbar-left">
-                    <ul>
-                        <li><img src="assets/images/logo.png" alt="logo" class="logo"/></li>
-                        <li><a class="collapse" href="index.html">Home</a></li>
-                        <li><a href="myproject.html" class="collapse">My Project</a></li>
-                    </ul>
-                </div>
-                
-                <!-- Navbar Right -->
-                <div class="navbar-right collapse">
-                    <a href="contact.html">Contact Me</a>
-                </div>
-                <div class="navbar-humberger">
-                    <button type="button" onclick="navbarSwitch()"><img src="assets/images/icons8-menu-52.png" alt="menu"></button>
-                </div>
+    <!-- NAVBAR SECTION -->
+    <section id="navbar">
+        <div class="navbar-container">
+            <!-- Navbar Left -->
+            <div class="navbar-left">
+                <ul>
+                    <li><img src="assets/images/logo.png" alt="logo" class="logo"/></li>
+                    <li><a class="active collapse" href="index.html">Home</a></li>
+                    <li><a href="myproject.html" class="collapse">My Project</a></li>
+                </ul>
             </div>
-        </section>
-        <div class="navbar-humberger-list" id="navbar-humberger-list">
-            <a href="index.html" class="humberger-active">Home</a>
-            <a href="myproject.html">My Project</a>
-            <a href="contact.html">Contact Me</a>
+            
+            <!-- Navbar Right -->
+            <div class="navbar-right collapse">
+                <a href="contact.html">Contact Me</a>
+            </div>
+            <div class="navbar-humberger">
+                <button type="button" onclick="navbarSwitch()"><img src="assets/images/icons8-menu-52.png" alt="menu"></button>
+            </div>
         </div>
-    
+    </section>
+    <div class="navbar-humberger-list" id="navbar-humberger-list">
+        <a href="index.html">Home</a>
+        <a href="myproject.html">My Project</a>
+        <div class="contact-humberger">
+            <a href="contact.html" >Contact Me</a>
+        </div>
+    </div>
+
     <!-- CONTACT SECTION -->
     <section id="contact">
         <div class="contact-container">
