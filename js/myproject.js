@@ -93,6 +93,20 @@ function renderProject() {
     }
 }
 
+
+
+let inputElement = document.getElementById("add-project-upload-image")
+let fileNameElement = document.getElementById("file-name")
+
+inputElement.addEventListener("change", ()=>{
+    let files = inputElement.files;
+    if (files.length > 0) {
+        let fileName = files[0].name;
+        fileNameElement.textContent = fileName;
+        }
+})
+
+
 let humbergerIsOpen = false;
 
 function navbarSwitch(){
