@@ -19,12 +19,24 @@ function submitData(event) {
     let mulai = new Date(startDate);
     let akhir = new Date(endDate);
     let selisih = akhir.getTime() - mulai.getTime();
-    let day = selisih / (1000 * 60 * 60 * 24)
-    let months = Math.floor(day / 30)
-    let years = Math.floor(day / 365)
-    let days = Math.floor((day%30) % 7)
-    let weeks = Math.floor((day%30) / 7)
-    let durasi = `${years} Tahun ${months} Bulan ${weeks} Minggu ${days} Hari`
+    let days = selisih / (1000 * 60 * 60 * 24)
+    let weeks = Math.floor(days / 7)
+    let months = Math.floor(weeks / 4)
+    let years = Math.floor(months / 12)
+    let durasi = ""
+
+    if(days > 0){
+        durasi = days + " hari"
+    }
+    if (weeks > 0){
+        durasi = weeks + " minggu"
+    }
+    if (months > 0){
+        durasi = months + " bulan"
+    }
+    if (years > 0){
+        durasi = years + " tahun"
+    }
 
     // Cek Checkbox
     if (nodejs.checked) {
@@ -68,27 +80,38 @@ function renderProject() {
             technologyImages += `<img src="assets/images/${dataProject[i].dataTechnology[j]}.png" alt="${dataProject[i].dataTechnology[j]}">`;
         }
 
-        document.getElementById("project-list").innerHTML += `
-            <div class="project-items">
-                <div class="project-items-container">
-                    <div class="project-list-image">
-                        <img src="${dataProject[i].imageUrl}" alt="project-list">
-                    </div>
-                    <div class="project-list-title">
-                        <p class="list-title"><a target="_blank" href="project-detail.html">${dataProject[i].title}</a></p>
-                        <p class="list-duration">durasi: ${dataProject[i].durasi}</p>
-                    </div>
-                    <div>
-                        <p class="list-description">${dataProject[i].description}</p>
-                    </div>
-                    <div class="technology">
-                        ${technologyImages}
-                    </div>
-                    <div class="project-list-button">
-                        <button class="edit" type="button">edit</button>
-                        <button class="delete" type="button">delete</button>
-                    </div>
+        document.getElementById("project-list").innerHTML += 
+            ` <div id="project-items" class="project-items">
+            <div class="project-items-container">
+                <div class="project-list-image">
+                    <img src="${dataProject[i].imageUrl}" alt="project-list">
                 </div>
-            </div>`;
+                <div class="project-list-title">
+                    <p class="list-title"><a target="_blank" href="project-detail.html">${dataProject[i].title}s</a></p>
+                    <p class="list-duration">durasi : ${dataProject[i].durasi}</p>
+                </div>
+                <div class="description">
+                    <p class="list-description">${dataProject[i].description}</p>
+                </div>
+                <div class="technology">
+                    ${technologyImages}
+                </div>
+                <div class="project-list-button">
+                    <button class="edit" type="button">edit</button>
+                    <button class="delete" type="button">delete</button>
+                </div>
+            </div>
+        </div>`;
     }
 }
+
+let inputElement = document.getElementById("add-project-upload-image")
+let fileNameElement = document.getElementById("file-name")
+
+inputElement.addEventListener("change", ()=>{
+    let files = inputElement.files;
+    if (files.length > 0) {
+        let fileName = files[0].name;
+        fileNameElement.textContent = fileName;
+        }
+})
