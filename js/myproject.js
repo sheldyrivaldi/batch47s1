@@ -15,7 +15,7 @@ function submitData(event) {
     let typescript = document.getElementById("typescript");
     let image = document.getElementById("add-project-upload-image").files;
 
-    // Mencari durasi projct
+    // Mencari durasi project
     let mulai = new Date(startDate);
     let akhir = new Date(endDate);
     let selisih = akhir.getTime() - mulai.getTime();
