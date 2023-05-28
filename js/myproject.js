@@ -15,16 +15,28 @@ function submitData(event) {
     let typescript = document.getElementById("typescript");
     let image = document.getElementById("add-project-upload-image").files;
 
-    // Mencari durasi projct
+    // Mencari durasi project
     let mulai = new Date(startDate);
     let akhir = new Date(endDate);
     let selisih = akhir.getTime() - mulai.getTime();
-    let day = selisih / (1000 * 60 * 60 * 24)
-    let months = Math.floor(day / 30)
-    let years = Math.floor(day / 365)
-    let days = Math.floor((day%30) % 7)
-    let weeks = Math.floor((day%30) / 7)
-    let durasi = `${years} Tahun ${months} Bulan ${weeks} Minggu ${days} Hari`
+    let days = selisih / (1000 * 60 * 60 * 24)
+    let weeks = Math.floor(days / 7)
+    let months = Math.floor(weeks / 4)
+    let years = Math.floor(months / 12)
+    let durasi = ""
+
+    if(days > 0){
+        durasi = days + " hari"
+    }
+    if (weeks > 0){
+        durasi = weeks + " minggu"
+    }
+    if (months > 0){
+        durasi = months + " bulan"
+    }
+    if (years > 0){
+        durasi = years + " tahun"
+    }
 
     // Cek Checkbox
     if (nodejs.checked) {
