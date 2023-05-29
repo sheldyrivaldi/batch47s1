@@ -30,12 +30,15 @@ body {
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
 }
 .testimonial-item{
     width: 30%;
     text-align: justify;
     background: white;
+    margin-bottom: 20px;
+    margin-left: 10px;
+    margin-right: 10px;
     padding: 10px;
     box-sizing: border-box;
     box-shadow: 2px 7px 10px rgba(0, 0, 0, 0.3);
