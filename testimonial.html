@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Personal Web</title>
@@ -43,32 +44,58 @@
     <section class="testimonial" id="testimonial">
         <div class="testimonial-container">
             <h1>My Testimonials</h1>
+            <h2>Rating By Star</h2>
+            <div class="rating-list">
+                <button class="rating-item" id onclick="allTestimonials()">
+                    All
+                </button>
+                <button class="rating-item" onclick="filteredTestimonials(1)">
+                    1 <i class="fa-solid fa-star" style="color: #ffffff;"></i>
+                </button>
+                <button class="rating-item" onclick="filteredTestimonials(2)">
+                    2 <i class="fa-solid fa-star" style="color: #ffffff;"></i>
+                </button>
+                <button class="rating-item" onclick="filteredTestimonials(3)">
+                    3 <i class="fa-solid fa-star" style="color: #ffffff;"></i>
+                </button>
+                <button class="rating-item" onclick="filteredTestimonials(4)">
+                    4 <i class="fa-solid fa-star" style="color: #ffffff;"></i>
+                </button>
+                <button class="rating-item" onclick="filteredTestimonials(5)">
+                    5 <i class="fa-solid fa-star" style="color: #ffffff;"></i>
+                </button>
+            </div>
             <div class="testimonial-list" id="testimonial-list">
-                <div class="testimonial-item">
+                <!-- <div class="testimonial-item">
                     <img src="assets/images/testimonial-3.jpg" alt="testimonial-image" class="testimonial-image"/>
                     <p class="testimonial-description">Lorem ipsum dolor sit amet!</p>
                     <p class="author">- John</p>
+                    <p class="testimonial-rating">5 <i class="fa-solid fa-star" style="color: #000;"></i></p>
                 </div>
                 <div class="testimonial-item">
                     <img src="assets/images/testimonial-2.jpg" alt="testimonial-image" class="testimonial-image"/>
                     <p class="testimonial-description">Lorem ipsum dolor sit amet!</p>
                     <p class="author">- Sarah</p>
+                    <p class="testimonial-rating">4 <i class="fa-solid fa-star" style="color: #000;"></i></p>
                 </div>
                 <div class="testimonial-item">
                     <img src="assets/images/testimonial-1.jpg" alt="testimonial-image" class="testimonial-image"/>
                     <p class="testimonial-description">Lorem ipsum dolor sit amet!</p>
                     <p class="author">- Robert</p>
+                    <p class="testimonial-rating">4 <i class="fa-solid fa-star" style="color: #000;"></i></p>
                 </div>
                 <div class="testimonial-item">
                     <img src="assets/images/testimonial-3.jpg" alt="testimonial-image" class="testimonial-image"/>
                     <p class="testimonial-description">Lorem ipsum dolor sit amet!</p>
                     <p class="author">- John</p>
+                    <p class="testimonial-rating">3 <i class="fa-solid fa-star" style="color: #000;"></i></p>
                 </div>
                 <div class="testimonial-item">
                     <img src="assets/images/testimonial-2.jpg" alt="testimonial-image" class="testimonial-image"/>
                     <p class="testimonial-description">Lorem ipsum dolor sit amet!</p>
                     <p class="author">- Sarah</p>
-                </div>
+                    <p class="testimonial-rating">1 <i class="fa-solid fa-star" style="color: #000;"></i></p>
+                </div> -->
             </div> 
         </div>
     </section>
