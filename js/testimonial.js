@@ -59,5 +59,4 @@ let dataHTML = ""
 for(let i = 0; i < data.length; i++){
     dataHTML += data[i].review
 }
-console.log(dataHTML)
 document.getElementById("testimonial-list").innerHTML = dataHTML
