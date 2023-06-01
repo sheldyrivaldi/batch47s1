@@ -1,0 +1,29 @@
+#add-project {
+  padding: 150px 80px 100px 80px;
+}
+.container-form h1 {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+#description {
+  resize: none;
+  height: 8rem;
+}
+.upload-button {
+  background-color: white;
+}
+.upload-button input {
+  display: none;
+}
+.upload-button label {
+  cursor: pointer;
+}
+.submit-button button {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  .container-form {
+    width: 50%;
+  }
+}

@@ -1,55 +1,20 @@
-#contact{
-    display: flex;
-    justify-content: center;
+#contact {
+  padding: 150px 80px 100px 80px;
 }
-.contact-container{
-    margin-top: 50px;
-    margin-bottom: 50px;
-    width: 40%;
+.container-form h1 {
+  font-size: 1.5rem;
+  font-weight: bold;
 }
-
-.contact-form h1{
-    text-align: center;
-    margin-bottom: 50px;
+.dropdown button {
+  background-color: white;
 }
-.contact-form-input{
-    display: flex;
-    flex-direction: column;
-    margin: 20px 0;
-
-}
-.contact-form-input input, .contact-form-input select{
-    padding: 10px;
-    border: 0;
-    border-radius: 5px;
-    box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.3);
-}
-.contact-form-input textarea{
-    height: 200px;
-    box-shadow: 2px 7px 10px rgba(0, 0, 0, 0.3);
-    border: 0;
-    border-radius: 5px;
-}
-.contact-submit{
-    text-align: end;
-    margin-top: 50px;
-}
-.contact-submit button{
-    background-color: black;
-    color: white;
-    padding: 5px 25px;
-    border-radius: 20px;
-    font-size: 14px;
-    font-weight: bold;
-    border: 0;
-}
-.contact-submit button:hover{
-    background-color: grey;
+#message {
+  resize: none;
+  height: 8rem;
 }
 
-
-@media only screen and (max-width: 900px) {
-    .contact-container{
-        width: 80vw;
-    }
+@media (min-width: 768px) {
+  .container-form {
+    width: 50%;
+  }
 }

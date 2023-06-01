@@ -1,0 +1,56 @@
+body {
+  font-family: "Poppins", sans-serif !important;
+}
+.navbar-nav .nav-link {
+  color: black;
+}
+
+#cardboard {
+  padding: 150px 80px 100px 80px;
+}
+.cardboard-left h1,
+.card h1 {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.cardboard-left p {
+  text-align: justify;
+}
+.cardboard-sosmed img {
+  width: 40px;
+  margin-right: 20px;
+}
+
+#projects {
+  margin: 10px auto 100px auto;
+}
+.card-body .list-duration,
+.card-body .list-description {
+  font-size: 12px;
+}
+.card-body .list-description {
+  text-align: justify;
+}
+.technology img {
+  width: 2rem;
+  margin-right: 10px;
+}
+.project-list-button .edit,
+.project-list-button .delete {
+  width: 48%;
+  font-size: 14px;
+}
+
+@media (max-width: 767px) {
+  .cardboard-download,
+  .cardboard-sosmed {
+    display: flex;
+    justify-content: center;
+  }
+  .cardboard-sosmed {
+    margin-bottom: 20px;
+  }
+  .cardboard-sosmed img {
+    margin: auto 10px;
+  }
+}

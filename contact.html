@@ -1,83 +1,126 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personal Web</title>
-    <link rel="stylesheet" href="css/contact.css"/>
-    <link rel="stylesheet" href="css/styles.css"/>
-</head>
-<body>
-    <!-- NAVBAR SECTION -->
-    <section id="navbar">
-        <div class="navbar-container">
-            <!-- Navbar Left -->
-            <div class="navbar-left">
-                <ul>
-                    <li><img src="assets/images/logo.png" alt="logo" class="logo"/></li>
-                    <li><a class="collapse" href="index.html">Home</a></li>
-                    <li><a href="myproject.html" class="collapse">My Project</a></li>
-                    <li><a href="testimonial.html" class="collapse">Testimonials</a></li>
-                </ul>
-            </div>
-            
-            <!-- Navbar Right -->
-            <div class="navbar-right collapse">
-                <a href="contact.html">Contact Me</a>
-            </div>
-            <div class="navbar-humberger">
-                <button type="button" onclick="navbarSwitch()"><img src="assets/images/icons8-menu-52.png" alt="menu"></button>
-            </div>
-        </div>
-    </section>
-    <div class="navbar-humberger-list" id="navbar-humberger-list">
-        <a href="index.html">Home</a>
-        <a href="myproject.html">My Project</a>
-        <a href="testimonial.html">Testimonials</a>
-        <div class="contact-humberger">
-            <a href="contact.html" >Contact Me</a>
-        </div>
-    </div>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <!-- CONTACT SECTION -->
-    <section id="contact">
-        <div class="contact-container">
-            <div class="contact-form">
-                <h1>GET IN TOUCH</h1>
-                <form>
-                    <div class="contact-form-input">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" />
-                    </div>
-                    <div class="contact-form-input">
-                        <label for="email">Email</label>
-                        <input type="emil" id="email" />
-                    </div>
-                    <div class="contact-form-input">
-                        <label for="phone-number">Phone Number</label>
-                        <input type="number" id="phone-number" />
-                    </div>
-                    <div class="contact-form-input">
-                        <label for="subject">Subject</label>
-                        <select id="subject">
-                            <option value="" hidden></option>
-                            <option value="Frontend Developer">Frontend Developer</option>
-                            <option value="Backend Developer">Backend Developer</option>
-                            <option value="Fullstack Developer">Fullstack Developer</option>
-                        </select>
-                    </div>
-                    <div class="contact-form-input">
-                        <label for="message">Your Message</label>
-                        <textarea id="message"></textarea>
-                    </div>
-                </form>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap" rel="stylesheet" />
+
+    <!-- My CSS -->
+    <link rel="stylesheet" href="css/index.css" />
+    <link rel="stylesheet" href="css/contact.css" />
+
+    <!-- Bootstap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous" />
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
+
+    <title>Personal Web</title>
+  </head>
+  <body>
+    <!-- Navbar Start -->
+    <section id="navbar" class="fixed-top">
+      <nav class="navbar navbar-expand-lg bg-light px-3">
+        <div class="container p-0">
+          <a class="navbar-brand align" href="#">
+            <img src="assets/images/logo.png" class="w-75" alt="Dumbways Logo" />
+          </a>
+
+          <!-- Toogler Navbar Start -->
+          <button class="navbar-toggler justify-content-between" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <!-- Toggler Navbar End -->
+
+          <!-- Navbar Item Start-->
+          <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+            <ul class="navbar-nav align-items-center">
+              <li class="nav-item">
+                <a class="nav-link ms-2 me-2" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link ms-2 me-2" href="#">Add Project</a>
+              </li>
+            </ul>
+            <div class="text-center p-1">
+              <button type="button" class="btn btn-dark btn-sm">Contact Me</button>
             </div>
-            <div class="contact-submit">
-                <button type="button" onclick="submitData()">submit</button>
-            </div>
+          </div>
+          <!-- Navbar Item End -->
         </div>
+      </nav>
     </section>
-    <script src="js/index.js"></script>
+    <!-- Navbar End -->
+
+    <!-- Contact Start -->
+    <section id="contact" class="px-3 bg-body-secondary">
+      <div class="container d-flex justify-content-center">
+        <div class="container-form">
+          <h1 class="text-center">GET IN TOUCH</h1>
+
+          <!-- Name Start -->
+          <div class="row mt-5">
+            <div class="col">
+              <label for="name" class="fw-medium">Name</label>
+              <input type="text" id="name" class="w-100 p-2 rounded-1 border-0 shadow" />
+            </div>
+          </div>
+          <!-- Name End -->
+
+          <!-- Email Start -->
+          <div class="row mt-5">
+            <div class="col">
+              <label for="email" class="fw-medium">Email</label>
+              <input type="email" id="email" class="w-100 p-2 rounded-1 border-0 shadow" />
+            </div>
+          </div>
+          <!-- Email End -->
+
+          <!-- Phone Number Start -->
+          <div class="row mt-5">
+            <div class="col">
+              <label for="phone" class="fw-medium">Phone Number</label>
+              <input type="number" id="phone" class="w-100 p-2 rounded-1 border-0 shadow" />
+            </div>
+          </div>
+          <!-- Phone Number End -->
+
+          <!-- Subject Start -->
+          <div class="dropdown mt-5">
+            <label for="subject" class="fw-medium">Subject</label>
+            <button id="subject" class="btn dropdown-toggle w-100 text-end p-2 rounded-1 border-0 shadow" type="button" data-bs-toggle="dropdown" aria-expanded="false"></button>
+            <ul class="dropdown-menu w-100 text-center">
+              <li class="dropdown-item" onclick="onFire(0)">Frontend Developer</li>
+              <li class="dropdown-item" onclick="onFire(1)">Backend Developer</li>
+              <li class="dropdown-item" onclick="onFire(2)">Fullstack Developer</li>
+            </ul>
+          </div>
+          <!-- Subject End -->
+
+          <!-- Message Start -->
+          <div class="row mt-3">
+            <div class="col">
+              <label for="message" class="fw-medium">Your Message</label>
+              <textarea id="message" class="w-100 p-2 rounded-1 border-0 shadow"></textarea>
+            </div>
+          </div>
+          <!-- Message End -->
+
+          <!-- Submit Button Start -->
+          <div class="submit-button d-flex justify-content-end mt-5">
+            <button type="button" onclick="submitData()" class="btn btn-dark py-1 px-4 rounded-5 fw-medium text-end">submit</button>
+          </div>
+          <!-- Submit Button End -->
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact End -->
     <script src="js/contact.js"></script>
-</body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+  </body>
 </html>
