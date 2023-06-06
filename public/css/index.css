@@ -38,7 +38,7 @@ body {
 .project-list-button .edit,
 .project-list-button .delete {
   width: 48%;
-  font-size: 14px;
+  font-size: 11px;
 }
 
 @media (max-width: 767px) {

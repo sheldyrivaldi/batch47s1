@@ -1,7 +1,7 @@
 let subjectItem = "";
 let dropdownItems = ["Frontend Developer", "Backend Developer", "Fullstack Developer"];
 
-function onFire(item) {
+function dropdownClick(item) {
   subjectItem = dropdownItems[item];
 }
 
