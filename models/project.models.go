@@ -1,12 +1,13 @@
 package models
 
 type Projects struct {
-	Id int `json:"id"`
-	ProjectName string `json:"projectName"`
-	StartDate string `json:"startDate"`
-	EndDate string `json:"endDate"`
-	Description string `json:"description"`
-	Technologies interface{} `json:"technologies"`
-	Image string `json:"image"`
-
+	Id           int         `form:"id"`
+	ProjectName  string      `form:"projectName"`
+	StartDate    string      `form:"startDate"`
+	EndDate      string      `form:"endDate"`
+	Duration     string      `form:"duration"`
+	Description  string      `form:"description"`
+	Technologies []string	 `form:"technologies"`
+	Image        string      `form:"image"`
 }
+

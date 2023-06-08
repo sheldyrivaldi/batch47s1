@@ -59,80 +59,48 @@
     </section>
     <!-- Navbar End -->
 
+    <!-- Project Details Start -->
     <section id="project-detail">
-      <div id="project-detail-container">
-        <div class="project-detail-item">
-          <h1>Dumbways Web App</h1>
-          <div class="image-detail">
-            <div class="image">
-              <img src="/public/images/project-list1.png" alt="project-list" />
-            </div>
-            <div class="detail">
-              <div class="detail-container">
-                <div class="duration">
-                  <div class="duration-title">Duration</div>
-                  <div class="duration-img">
-                    <img src="/public/images/calendar.png" alt="calendar" />
-                    <p>12 Jan 2021 - 11 Feb 2021</p>
-                  </div>
-                  <div class="duration-month">
-                    <img src="/public/images/clock.png" alt="clock" />
-                    <p>1 month</p>
-                  </div>
+      <h1 class="text-center fw-bold">{{.Projects.ProjectName}}</h1>
+      <div class="project-detail-item container px-0 mt-5">
+        <div class="row row-cols-md-2 image-detail">
+          <div class="col-md-8 image">
+            <img class="w-100" src="/public/images/{{.Projects.Image}}" alt="project-list" />
+          </div>
+          <div class="col-md-4 detail">
+            <div class="detail-container">
+              <div class="duration d-flex flex-column">
+                <div class="duration-title fw-medium fs-5">Duration</div>
+                <div class="duration-img d-flex flex-row justify-content-start align-items-center mt-2">
+                  <img src="/public/images/calendar.png" alt="calendar" />
+                  <p class="mb-0 ms-1">{{.Projects.StartDate}} - {{.Projects.EndDate}}</p>
                 </div>
-                <div class="technology-list">
-                  <div class="technology-title">Technologies</div>
-                  <div class="technology-container">
-                    <div class="technology-item">
-                      <img id="reactjs" src="/public/images/reactjs.png" alt="reactjs" />
-                      <label for="reactjs">React Js</label>
-                    </div>
-                    <div class="technology-item">
-                      <img id="nextjs" src="/public/images/nextjs.png" alt="nextjs" />
-                      <label for="nextjs">Next Js</label>
-                    </div>
-                    <div class="technology-item">
-                      <img id="nodejs" src="/public/images/nodejs.png" alt="nodejs" />
-                      <label for="nodejs">Node Js</label>
-                    </div>
-                    <div class="technology-item">
-                      <img id="typescript" src="/public/images/typescript.png" alt="typescript" />
-                      <label for="typescript">typescript Js</label>
-                    </div>
+                <div class="duration-month d-flex flex-row justify-content-start align-items-center mt-2">
+                  <img src="/public/images/clock.png" alt="clock" />
+                  <p class="mb-0 ms-1">{{.Projects.Duration}}</p>
+                </div>
+              </div>
+              <div class="technology-list">
+                <div class="technology-title fw-medium fs-5 mt-4">Technologies</div>
+                <div class="technology-container row row-cols-2">
+                  {{range $index, $data := .Projects.Technologies}}
+                  <div class="technology-item col mt-2">
+                    <img id="{{$data}}" src="/public/images/{{$data}}.png" alt="{{$data}}" />
+                    <label for="{{$data}}">{{$data}}</label>
                   </div>
+                  {{end}}
                 </div>
               </div>
             </div>
           </div>
-          <div class="description">
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit culpa modi hic, voluptatum a quis nisi iusto, accusantium accusamus aspernatur neque vero labore ullam? Voluptas magnam enim repellendus reprehenderit nulla nisi
-              accusantium. Quidem vel provident fugit atque omnis laborum. Neque, temporibus beatae accusantium nemo ullam eum ducimus perspiciatis fugiat obcaecati.
-            </p>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit culpa modi hic, voluptatum a quis nisi iusto, accusantium accusamus aspernatur neque vero labore ullam? Voluptas magnam enim repellendus reprehenderit nulla nisi
-              accusantium. Quidem vel provident fugit atque omnis laborum. Neque.
-            </p>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit culpa modi hic, voluptatum a quis nisi iusto, accusantium accusamus aspernatur neque vero labore ullam? Voluptas magnam enim repellendus reprehenderit nulla nisi
-              accusantium. Quidem vel provident fugit atque omnis laborum. Neque, temporibus beatae accusantium nemo ullam eum ducimus perspiciatis fugiat obcaecati.
-            </p>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit culpa modi hic, voluptatum a quis nisi iusto, accusantium accusamus aspernatur neque vero labore ullam? Voluptas magnam enim repellendus reprehenderit nulla nisi
-              accusantium. Quidem vel provident fugit atque omnis laborum. Neque.
-            </p>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit culpa modi hic, voluptatum a quis nisi iusto, accusantium accusamus aspernatur neque vero labore ullam? Voluptas magnam enim repellendus reprehenderit nulla nisi
-              accusantium. Quidem vel provident fugit atque omnis laborum. Neque, temporibus beatae accusantium nemo ullam eum ducimus perspiciatis fugiat obcaecati.
-            </p>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit culpa modi hic, voluptatum a quis nisi iusto, accusantium accusamus aspernatur neque vero labore ullam? Voluptas magnam enim repellendus reprehenderit nulla nisi
-              accusantium. Quidem vel provident fugit atque omnis laborum. Neque.
-            </p>
-          </div>
+        </div>
+        <div class="description py-5">
+          <p>{{.Projects.Description}}</p>
         </div>
       </div>
     </section>
+    <!-- Project Details End -->
+
     <script src="public/js/project-detail.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
   </body>

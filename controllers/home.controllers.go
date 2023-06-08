@@ -8,11 +8,14 @@ import (
 )
 
 func GetHomeController(c echo.Context) error {
+	projects := map[string]interface{}{
+		"Projects": DataProjects,
+	}
 	var tmpl, err = template.ParseFiles("views/index.html")
 
 	if err != nil {
 		return c.JSON(http.StatusInternalServerError, map[string]string{"message": err.Error()})
 	}
-
-	return tmpl.Execute(c.Response(), nil)
+	
+	return tmpl.Execute(c.Response(), projects)
 }

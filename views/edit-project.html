@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&display=swap" rel="stylesheet" />
+
+    <!-- My CSS -->
+    <link rel="stylesheet" href="/public/css/index.css" />
+    <link rel="stylesheet" href="/public/css/add-projects.css" />
+
+    <!-- Bootstap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous" />
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
+
+    <title>Personal Web</title>
+  </head>
+  <body>
+    <!-- Navbar Start -->
+    <section id="navbar" class="fixed-top">
+      <nav class="navbar navbar-expand-lg bg-light px-3">
+        <div class="container p-0">
+          <a class="navbar-brand align" href="/">
+            <img src="/public/images/logo.png" class="w-75" alt="Dumbways Logo" />
+          </a>
+
+          <!-- Toogler Navbar Start -->
+          <button class="navbar-toggler justify-content-between" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <!-- Toggler Navbar End -->
+
+          <!-- Navbar Item Start-->
+          <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+            <ul class="navbar-nav align-items-center">
+              <li class="nav-item">
+                <a class="nav-link ms-2 me-2" aria-current="page" href="/">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link ms-2 me-2" href="/add-project">Add Project</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link ms-2 me-2" aria-current="page" href="/testimonials">Testimonials</a>
+              </li>
+            </ul>
+            <div class="text-center p-1">
+              <a href="/contact"><button type="button" class="btn btn-dark btn-sm">Contact Me</button></a>
+            </div>
+          </div>
+          <!-- Navbar Item End -->
+        </div>
+      </nav>
+    </section>
+    <!-- Navbar End -->
+
+    <!-- Add Project Start -->
+    <section id="add-project" class="px-3 bg-body-secondary">
+      <div class="container d-flex justify-content-center">
+        <div class="container-form">
+          <form action="/edit-project/{{.Projects.Id}}" method="post" enctype="multipart/form-data">
+            <h1 class="text-center">EDIT PROJECT</h1>
+
+            <!-- Project Name Start -->
+            <div class="row mt-5">
+              <div class="col">
+                <label for="project-name" class="fw-medium">Project Name</label>
+                <input type="text" name="project-name" id="project-name" class="w-100 p-2 rounded-1 border-0 shadow" value="{{.Projects.ProjectName}}" />
+              </div>
+            </div>
+            <!-- Project Name End -->
+
+            <!-- Project Duration Start -->
+            <div class="row mt-3">
+              <div class="col w-50">
+                <label for="start-date" class="fw-medium">Start Date</label>
+                <input type="date" name="start-date" id="start-date" class="w-100 p-2 rounded-1 border-0 shadow" value="{{.Projects.StartDate}}"/>
+              </div>
+              <div class="col w-50">
+                <label for="end-date" class="fw-medium">End Date</label>
+                <input type="date" name="end-date" id="end-date" class="w-100 p-2 rounded-1 border-0 shadow" value="{{.Projects.EndDate}}" />
+              </div>
+            </div>
+            <!-- Project Duration End -->
+
+            <!-- Project Description Start -->
+            <div class="row mt-3">
+              <div class="col">
+                <label for="description" class="fw-medium">Description</label>
+                <textarea id="description" name="description" class="w-100 p-2 rounded-1 border-0 shadow">{{.Projects.Description}}</textarea>
+              </div>
+            </div>
+            <!-- Project Description End -->
+
+            <!-- Project Technologies Start -->
+            <div class="row mt-3">
+              <div class="col">
+                <label class="fw-medium">Technologies</label>
+                <div class="row mt-3">
+                  <div class="col-5">
+                    <input type="checkbox" id="nodejs" name="nodejs" value="Node Js" {{if .IsCheckedNodeJs}} checked {{end}} />
+                    <label for="nodejs" class="ms-1">Node Js</label>
+                  </div>
+                  <div class="col-5">
+                    <input type="checkbox" id="nextjs" name="nextjs" value="Next Js" {{if .IsCheckedNextJs}} checked {{end}} />
+                    <label for="nextjs" class="ms-1">Next Js</label>
+                  </div>
+                </div>
+                <div class="row mt-3">
+                  <div class="col-5">
+                    <input type="checkbox" id="reactjs" name="reactjs" value="React Js" {{if .IsCheckedReactJs}} checked {{end}} />
+                    <label for="reactjs" class="ms-1">React Js</label>
+                  </div>
+                  <div class="col-5">
+                    <input type="checkbox" id="typescript" name="typescript" value="TypeScript" {{if .IsCheckedTypescript}} checked {{end}} />
+                    <label for="typescript" class="ms-1">TypeScript</label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- Project Technologies End -->
+
+            <!-- Upload Image Start -->
+            <div class="row mt-3">
+              <div class="col">
+                <label class="fw-medium">Upload Image</label>
+                <buton type="button" class="upload-button w-100 border-0 d-flex justify-content-between pe-2 rounded shadow align-items-center">
+                  <label class="bg-secondary-subtle text-body-tertiary px-3 py-2 shadow" for="upload-image">choose</label>
+                  <input type="file" name="upload-image" id="upload-image"/>
+                  <label for="upload-image" id="file-name" class="">{{.Projects.Image}}</label>
+                  <label class="img" for="upload-image"><img src="/public/images/upload-image.png" alt="upload-image" /></label>
+                </button>
+              </div>
+            </div>
+            <!-- Upload Image End -->
+
+            <!-- Submit Button Start -->
+            <div class="submit-button d-flex justify-content-end mt-5">
+              <button type="submit" class="btn btn-dark py-1 px-4 rounded-5 fw-medium text-end">submit</button>
+            </div>
+            <!-- Submit Button End -->
+
+          </form>
+        </div>
+      </div>
+    </section>
+    <!-- Add Project End -->
+    <!-- <script src="js/add-project.js"></script> -->
+    <script src="/public/js/add-project.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+  </body>
+</html>

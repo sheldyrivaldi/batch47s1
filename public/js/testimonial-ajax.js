@@ -25,8 +25,8 @@ async function getAllTestimonials() {
       dataHTML += `<div class="testimonial-item">
             <img src="${item.image}" alt="testimonial-image" class="testimonial-image"/>
             <p class="testimonial-description">${item.opinion}</p>
-            <p class="${item.author}">- John</p>
-            <p class="testimonial-rating">${item.rating} <i class="fa-solid fa-star" style="color: #000;"></i></p>
+            <p class="${item.author} text-end">- John</p>
+            <p class="testimonial-rating">${item.rating} <i class="fa-solid fa-star text-dark"></i></p>
         </div>`;
     });
 
@@ -54,8 +54,8 @@ async function getFilteredTestimonials(rating) {
         dataHTML += `<div class="testimonial-item">
                 <img src="${item.image}" alt="testimonial-image" class="testimonial-image"/>
                 <p class="testimonial-description">${item.opinion}</p>
-                <p class="${item.author}">- John</p>
-                <p class="testimonial-rating">${item.rating} <i class="fa-solid fa-star" style="color: #000;"></i></p>
+                <p class="${item.author} text-end">- John</p>
+                <p class="testimonial-rating">${item.rating} <i class="fa-solid fa-star text-dark"></i></p>
             </div>`;
       });
     }
