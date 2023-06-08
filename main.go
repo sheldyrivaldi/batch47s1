@@ -2,6 +2,7 @@ package main
 
 import (
 	"os"
+	"stage1/configs"
 	"stage1/controllers"
 
 	"github.com/labstack/echo/v4"
@@ -10,6 +11,9 @@ import (
 
 
 func main() {
+	// Koneksi ke Database
+	configs.DatabaseConnection()
+
 	e := echo.New()
 
 	// Mengatur penanganan file static
@@ -23,15 +27,17 @@ func main() {
 	e.GET("/contacts", controllers.GetContactController)
 	e.GET("/edit-project/:id", controllers.GetEditProjectController)
 
-	//Daftar Routes POST
+	// Daftar Routes POST
 	e.POST("/add-project", controllers.AddProjectController)
 	e.POST("/edit-project/:id", controllers.SendEditedProjectController)
 	e.POST("/delete-project/:id", controllers.DeleteProjectController)
+
 
 	// Server
 	port := os.Getenv("PORT")
 	if port == "" {
 		port = "8000"
 	}
+	
 	e.Logger.Fatal(e.Start(":" + port))
 }

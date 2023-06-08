@@ -126,8 +126,8 @@
                   {{end}}
                 </div>
                 <div class="project-list-button mt-4 d-flex justify-content-between">
-                  <a href="/edit-project/{{$index}}" class="edit btn btn-dark py-1">edit</a>
-                  <form action="/delete-project/{{$index}}" method="post" class="m-0 delete"><input type="submit" class="delete w-100 btn btn-dark py-1" value="delete" /></form>
+                  <a href="/edit-project/{{$data.Id}}" class="edit btn btn-dark py-1">edit</a>
+                  <form action="/delete-project/{{$data.Id}}" method="post" class="m-0 delete"><input type="submit" class="delete w-100 btn btn-dark py-1" value="delete" /></form>
                 </div>
               </div>
             </div>
