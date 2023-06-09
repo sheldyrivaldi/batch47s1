@@ -36,8 +36,7 @@ func main() {
 	// Server
 	port := os.Getenv("PORT")
 	if port == "" {
-		port = "8000"
+		port = "5000"
 	}
-	
 	e.Logger.Fatal(e.Start(":" + port))
 }

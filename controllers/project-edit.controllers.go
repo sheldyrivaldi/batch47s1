@@ -3,9 +3,7 @@ package controllers
 import (
 	"fmt"
 	"net/http"
-	"stage1/models"
 	"stage1/utilities"
-	"strconv"
 	"text/template"
 
 	"github.com/labstack/echo/v4"
@@ -13,44 +11,29 @@ import (
 
 func GetEditProjectController(c echo.Context) error {
 	// Menangkap Id dari Query Params
-	id, _:= strconv.Atoi(c.Param("id"))
+	id := c.Param("id")
 	
 
-	// Membuat Struct berdasarkan Id dari Query Params
-	var projectDetails models.Projects
-	
-	for index, data := range DataProjects {
-		if index == id {
-			projectDetails = models.Projects {
-				Id: id,
-				ProjectName: data.ProjectName,
-				StartDate: data.StartDate,
-				EndDate: data.EndDate,
-				Duration: data.Duration,
-				Description: data.Description,
-				Technologies: utilities.GetTechnologiesValue(data.Technologies),
-				Image: data.Image,
-			}
-			
-		}
-	} 
-	
-	
+	// Get data dari database berdasarkan Id
+	result := utilities.FindOneProject(id)
+
+	// Membuat Map untuk dikirim export ke html
 	projects := map[string]interface{}{
-		"Projects": projectDetails,
-		"IsCheckedReactJs": utilities.GetTechnologiesChecked(projectDetails.Technologies, "reactjs"),
-		"IsCheckedNextJs": utilities.GetTechnologiesChecked(projectDetails.Technologies, "nextjs"),
-		"IsCheckedNodeJs": utilities.GetTechnologiesChecked(projectDetails.Technologies, "nodejs"),
-		"IsCheckedTypescript": utilities.GetTechnologiesChecked(projectDetails.Technologies, "typescript"),
-
+		"Projects":            result,
+		"IsCheckedReactJs":    utilities.GetTechnologiesChecked(result.Technologies, "reactjs"),
+		"IsCheckedNextJs":     utilities.GetTechnologiesChecked(result.Technologies, "nextjs"),
+		"IsCheckedNodeJs":     utilities.GetTechnologiesChecked(result.Technologies, "nodejs"),
+		"IsCheckedTypescript": utilities.GetTechnologiesChecked(result.Technologies, "typescript"),
 	}
 
-	
+	// Render templates
 	var tmpl, err = template.ParseFiles("views/edit-project.html")
 
 	if err != nil {
 		return c.JSON(http.StatusInternalServerError, map[string]string{"message": err.Error()})
 	}
+
+
 	return tmpl.Execute(c.Response(), projects)
 	
 }
@@ -59,14 +42,9 @@ func GetEditProjectController(c echo.Context) error {
 
 func SendEditedProjectController(c echo.Context) error {
 	// Menangkap Id dari Query Params
-	id, _:= strconv.Atoi(c.Param("id"))
+	id := c.Param("id")
 
-	// //Menangkap value image name
-	// image, err := c.FormFile("upload-image")
-	// if err != nil {
-	// 	return c.JSON(http.StatusBadRequest, map[string]string{"message": "Image harus di upload Bos!"})
-	// }
-
+	
 	// Menangkap value checkbox
 	reactjs := c.FormValue("reactjs")
 	nextjs := c.FormValue("nextjs")
@@ -74,21 +52,19 @@ func SendEditedProjectController(c echo.Context) error {
 	typescript := c.FormValue("typescript")
 	technologiesData := utilities.GetTechnologies(reactjs, nextjs, nodejs, typescript)
 
+	// Membuat New Project
+		projectName := c.FormValue("project-name")
+		startDate := c.FormValue("start-date")
+		endDate := c.FormValue("end-date")
+		description := c.FormValue("description")
+		technologies := technologiesData
+		image := "project-list1.png"
+	
 
-	// Membuat new Project
-	duration := utilities.GetDuration(c.FormValue("start-date"), c.FormValue("end-date"))
-	editedProject := models.Projects{
-		ProjectName: c.FormValue("project-name"),
-		StartDate: c.FormValue("start-date"),
-		EndDate: c.FormValue("end-date"),
-		Duration: duration,
-		Description: c.FormValue("description"),
-		Technologies: technologiesData,
-		Image: "project-list1.png",
-	}
+	// Insert New Project to Database
+	utilities.UpdateProject(id, projectName, startDate, endDate, description, technologies, image)
 
-	DataProjects[id] = editedProject
-	fmt.Printf("Project with id: %d, Successfully Updated!\n", id)
+	fmt.Println("Project successfully updated!")
 	
 	return c.Redirect(http.StatusMovedPermanently, "/")
 

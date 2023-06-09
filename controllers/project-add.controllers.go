@@ -55,12 +55,6 @@ func GetAddProjectController(c echo.Context) error {
 
 func AddProjectController(c echo.Context) error {
 
-	// //Menangkap value image name
-	// image, err := c.FormFile("upload-image")
-	// if err != nil {
-	// 	return c.JSON(http.StatusBadRequest, map[string]string{"message": "Image harus di upload Bos!"})
-	// }
-
 	// Menangkap value checkbox
 	reactjs := c.FormValue("reactjs")
 	nextjs := c.FormValue("nextjs")
@@ -68,21 +62,19 @@ func AddProjectController(c echo.Context) error {
 	typescript := c.FormValue("typescript")
 	technologiesData := utilities.GetTechnologies(reactjs, nextjs, nodejs, typescript)
 
+	// Membuat New Project
+		projectName := c.FormValue("project-name")
+		startDate := c.FormValue("start-date")
+		endDate := c.FormValue("end-date")
+		description := c.FormValue("description")
+		technologies := technologiesData
+		image := "project-list1.png"
+	
 
-	// Membuat new Project
-	duration := utilities.GetDuration(c.FormValue("start-date"), c.FormValue("end-date"))
-	newProject := models.Projects{
-		ProjectName: c.FormValue("project-name"),
-		StartDate: c.FormValue("start-date"),
-		EndDate: c.FormValue("end-date"),
-		Duration: duration,
-		Description: c.FormValue("description"),
-		Technologies: technologiesData,
-		Image: "project-list1.png",
-	}
+	// Insert New Project to Database
+	utilities.InsertProject(projectName, startDate, endDate, description, technologies, image)
 
-	DataProjects = append(DataProjects, newProject)
-	fmt.Println("Project Successfully Created!")
+	fmt.Println("Project successfully created!")
 	
 	return c.Redirect(http.StatusMovedPermanently, "/")
 }

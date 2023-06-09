@@ -3,7 +3,7 @@ package controllers
 import (
 	"fmt"
 	"net/http"
-	"strconv"
+	"stage1/utilities"
 
 	"github.com/labstack/echo/v4"
 )
@@ -11,10 +11,12 @@ import (
 func DeleteProjectController (c echo.Context) error{
 
 	// Menangkap Id dari Query Params
-	id, _:= strconv.Atoi(c.Param("id"))
-	
-	DataProjects = append(DataProjects[:id], DataProjects[id+1:]...)
-	fmt.Printf("Project with id: %d, Successfully Deleted!\n", id)
+	id := c.Param("id")
+
+	// Menghapus data dalam database
+	utilities.DeleteProject(id)
+
+	fmt.Println("Project successfully deleted!")
 
 	return c.Redirect(http.StatusMovedPermanently, "/")
 }

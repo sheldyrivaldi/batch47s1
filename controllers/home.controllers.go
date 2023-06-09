@@ -18,6 +18,6 @@ func GetHomeController(c echo.Context) error {
 	if err != nil {
 		return c.JSON(http.StatusInternalServerError, map[string]string{"message": err.Error()})
 	}
-
+	
 	return tmpl.Execute(c.Response(), projects)
 }
