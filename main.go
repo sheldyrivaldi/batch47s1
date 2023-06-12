@@ -24,7 +24,7 @@ func main() {
 	e.GET("/projects/:id", controllers.GetProjectDetailController)
 	e.GET("/add-project", controllers.GetAddProjectController)
 	e.GET("/testimonials", controllers.GetTestimonialsController)
-	e.GET("/contacts", controllers.GetContactController)
+	e.GET("/contact", controllers.GetContactController)
 	e.GET("/edit-project/:id", controllers.GetEditProjectController)
 
 	// Daftar Routes POST
