@@ -42,13 +42,30 @@
               <li class="nav-item">
                 <a class="nav-link ms-2 me-2" aria-current="page" href="/">Home</a>
               </li>
+              {{if .SessionData.IsLoggedIn}}
               <li class="nav-item">
-                <a class="nav-link ms-2 me-2 fw-bold" href="/add-project">Add Project</a>
+                <a class="nav-link ms-2 me-2" href="/add-project">Add Project</a>
               </li>
+              {{end}}
               <li class="nav-item">
                 <a class="nav-link ms-2 me-2" aria-current="page" href="/testimonials">Testimonials</a>
               </li>
             </ul>
+            {{if .SessionData.IsLoggedIn}}
+            <div class="text-center ms-auto me-2 p-2">
+              <a class="nav-link" href="#">Hello, {{.SessionData.Username}}</a>
+            </div>
+            <div class="text-center mx-2 p-2">
+              <form action="/logout" method="post"><button type="submit" class="nav-link">Logout</button></form>
+            </div>
+            {{else}}
+            <div class="text-center ms-auto me-2 p-2">
+              <a class="nav-link" href="/register">Register</a>
+            </div>
+            <div class="text-center mx-2 p-2">
+              <a class="nav-link" href="/login">Login</a>
+            </div>
+            {{end}}
             <div class="text-center p-1">
               <a href="/contact"><button type="button" class="btn btn-dark btn-sm">Contact Me</button></a>
             </div>

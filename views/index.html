@@ -41,13 +41,30 @@
               <li class="nav-item">
                 <a class="nav-link ms-2 me-2 fw-bold active" aria-current="page" href="/">Home</a>
               </li>
+              {{if .SessionData.IsLoggedIn}}
               <li class="nav-item">
                 <a class="nav-link ms-2 me-2" href="/add-project">Add Project</a>
               </li>
+              {{end}}
               <li class="nav-item">
                 <a class="nav-link ms-2 me-2" aria-current="page" href="/testimonials">Testimonials</a>
               </li>
             </ul>
+            {{if .SessionData.IsLoggedIn}}
+            <div class="text-center ms-auto me-2 p-2">
+              <a class="nav-link" href="#">Hello, {{.SessionData.Username}}</a>
+            </div>
+            <div class="text-center mx-2 p-2">
+              <form action="/logout" method="post"><button type="submit" class="nav-link">Logout</button></form>
+            </div>
+            {{else}}
+            <div class="text-center ms-auto me-2 p-2">
+              <a class="nav-link" href="/register">Register</a>
+            </div>
+            <div class="text-center mx-2 p-2">
+              <a class="nav-link" href="/login">Login</a>
+            </div>
+            {{end}}
             <div class="text-center p-1">
               <a href="/contact"><button type="button" class="btn btn-dark btn-sm">Contact Me</button></a>
             </div>
@@ -125,10 +142,12 @@
                   <img src="/public/images/{{$tech}}.png" alt="{{$tech}}" />
                   {{end}}
                 </div>
+                {{if $.SessionData.IsLoggedIn}}
                 <div class="project-list-button mt-4 d-flex justify-content-between">
                   <a href="/edit-project/{{$data.Id}}" class="edit btn btn-dark py-1">edit</a>
                   <form action="/delete-project/{{$data.Id}}" method="post" class="m-0 delete"><input type="submit" class="delete w-100 btn btn-dark py-1" value="delete" /></form>
                 </div>
+                {{end}}
               </div>
             </div>
           </div>

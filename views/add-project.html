@@ -22,42 +22,59 @@
     <title>Personal Web</title>
   </head>
   <body>
-    <!-- Navbar Start -->
-    <section id="navbar" class="fixed-top">
-      <nav class="navbar navbar-expand-lg bg-light px-3">
-        <div class="container p-0">
-          <a class="navbar-brand align" href="/">
-            <img src="/public/images/logo.png" class="w-75" alt="Dumbways Logo" />
-          </a>
+   <!-- Navbar Start -->
+   <section id="navbar" class="fixed-top">
+    <nav class="navbar navbar-expand-lg bg-light px-3">
+      <div class="container p-0">
+        <a class="navbar-brand align" href="/">
+          <img src="/public/images/logo.png" class="w-75" alt="Dumbways Logo" />
+        </a>
 
-          <!-- Toogler Navbar Start -->
-          <button class="navbar-toggler justify-content-between" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <!-- Toggler Navbar End -->
+        <!-- Toogler Navbar Start -->
+        <button class="navbar-toggler justify-content-between" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- Toggler Navbar End -->
 
-          <!-- Navbar Item Start-->
-          <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
-            <ul class="navbar-nav align-items-center">
-              <li class="nav-item">
-                <a class="nav-link ms-2 me-2" aria-current="page" href="/">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link ms-2 me-2 fw-bold active" href="/add-project">Add Project</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link ms-2 me-2" aria-current="page" href="/testimonials">Testimonials</a>
-              </li>
-            </ul>
-            <div class="text-center p-1">
-              <a href="/contact"><button type="button" class="btn btn-dark btn-sm">Contact Me</button></a>
-            </div>
+        <!-- Navbar Item Start-->
+        <div class="collapse navbar-collapse justify-content-between" id="navbarNav">
+          <ul class="navbar-nav align-items-center">
+            <li class="nav-item">
+              <a class="nav-link ms-2 me-2" aria-current="page" href="/">Home</a>
+            </li>
+            {{if .SessionData.IsLoggedIn}}
+            <li class="nav-item">
+              <a class="nav-link ms-2 me-2 fw-bold active" href="/add-project">Add Project</a>
+            </li>
+            {{end}}
+            <li class="nav-item">
+              <a class="nav-link ms-2 me-2" aria-current="page" href="/testimonials">Testimonials</a>
+            </li>
+          </ul>
+          {{if .SessionData.IsLoggedIn}}
+          <div class="text-center ms-auto me-2 p-2">
+            <a class="nav-link" href="#">Hello, {{.SessionData.Username}}</a>
           </div>
-          <!-- Navbar Item End -->
+          <div class="text-center mx-2 p-2">
+            <form action="/logout" method="post"><button type="submit" class="nav-link">Logout</button></form>
+          </div>
+          {{else}}
+          <div class="text-center ms-auto me-2 p-2">
+            <a class="nav-link" href="/register">Register</a>
+          </div>
+          <div class="text-center mx-2 p-2">
+            <a class="nav-link" href="/login">Login</a>
+          </div>
+          {{end}}
+          <div class="text-center p-1">
+            <a href="/contact"><button type="button" class="btn btn-dark btn-sm">Contact Me</button></a>
+          </div>
         </div>
-      </nav>
-    </section>
-    <!-- Navbar End -->
+        <!-- Navbar Item End -->
+      </div>
+    </nav>
+  </section>
+  <!-- Navbar End -->
 
     <!-- Add Project Start -->
     <section id="add-project" class="px-3 bg-body-secondary">

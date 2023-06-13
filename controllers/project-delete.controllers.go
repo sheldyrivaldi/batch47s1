@@ -8,15 +8,18 @@ import (
 	"github.com/labstack/echo/v4"
 )
 
-func DeleteProjectController (c echo.Context) error{
+func DeleteProjectController(c echo.Context) error {
 
 	// Menangkap Id dari Query Params
 	id := c.Param("id")
 
 	// Menghapus data dalam database
-	utilities.DeleteProject(id)
-
-	fmt.Println("Project successfully deleted!")
+	err := utilities.DeleteProject(id)
+	if err != nil {
+		c.JSON(http.StatusInternalServerError, map[string]string{"message": err.Error()})
+	} else {
+		fmt.Println("Project successfully deleted!")
+	}
 
 	return c.Redirect(http.StatusMovedPermanently, "/")
 }

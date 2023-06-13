@@ -4,7 +4,10 @@ body {
 .navbar-nav .nav-link {
   color: black;
 }
-
+.alert {
+  margin-bottom: 0 !important ;
+  margin-top: 60px;
+}
 #cardboard {
   padding: 150px 80px 100px 80px;
 }

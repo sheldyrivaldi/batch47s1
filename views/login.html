@@ -11,7 +11,7 @@
 
     <!-- My CSS -->
     <link rel="stylesheet" href="/public/css/index.css" />
-    <link rel="stylesheet" href="/public/css/myproject-detail.css" />
+    <link rel="stylesheet" href="/public/css/login.css" />
 
     <!-- Bootstap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous" />
@@ -63,7 +63,7 @@
               <a class="nav-link" href="/register">Register</a>
             </div>
             <div class="text-center mx-2 p-2">
-              <a class="nav-link" href="/login">Login</a>
+              <a class="nav-link fw-bold active" href="/login">Login</a>
             </div>
             {{end}}
             <div class="text-center p-1">
@@ -76,49 +76,56 @@
     </section>
     <!-- Navbar End -->
 
-    <!-- Project Details Start -->
-    <section id="project-detail">
-      <h1 class="text-center fw-bold">{{.Projects.ProjectName}}</h1>
-      <div class="project-detail-item container px-0 mt-5">
-        <div class="row row-cols-md-2 image-detail">
-          <div class="col-md-8 image">
-            <img class="w-100" src="/public/images/{{.Projects.Image}}" alt="project-list" />
-          </div>
-          <div class="col-md-4 detail">
-            <div class="detail-container">
-              <div class="duration d-flex flex-column">
-                <div class="duration-title fw-medium fs-5">Duration</div>
-                <div class="duration-img d-flex flex-row justify-content-start align-items-center mt-2">
-                  <img src="/public/images/calendar.png" alt="calendar" />
-                  <p class="mb-0 ms-1">{{.Projects.StartDate}} - {{.Projects.EndDate}}</p>
-                </div>
-                <div class="duration-month d-flex flex-row justify-content-start align-items-center mt-2">
-                  <img src="/public/images/clock.png" alt="clock" />
-                  <p class="mb-0 ms-1">{{.Projects.Duration}}</p>
-                </div>
-              </div>
-              <div class="technology-list">
-                <div class="technology-title fw-medium fs-5 mt-4">Technologies</div>
-                <div class="technology-container row row-cols-2">
-                  {{range $index, $data := .Projects.Technologies}}
-                  <div class="technology-item col mt-2">
-                    <img id="{{$data}}" src="/public/images/{{$data}}.png" alt="{{$data}}" />
-                    <label for="{{$data}}">{{$data}}</label>
-                  </div>
-                  {{end}}
-                </div>
+    <!-- Alert Start -->
+    {{if .Message}} {{if .Status}}
+    <div class="alert alert-success alert-dismissable fade show w-100 z-3 position-absolute" role="alert">
+      <strong>{{.Message}} </strong>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {{else}}
+    <div class="alert alert-danger alert-dismissable fade show w-100 z-3 position-absolute" role="alert">
+      <strong>{{.Message}} </strong>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {{end}} {{end}}
+    <!-- Alert End -->
+
+    <!-- Register Start -->
+    <section id="login" class="px-3 bg-body-secondary">
+      <div class="container d-flex justify-content-center">
+        <div class="container-form">
+          <form action="/login" method="post">
+            <h1 class="text-center">LOGIN TO YOUR ACCOUNT</h1>
+
+            <!-- Email Start -->
+            <div class="row mt-5">
+              <div class="col">
+                <label for="email" class="fw-medium">Email</label>
+                <input type="email" name="email" id="email" class="w-100 p-2 rounded-1 border-0 shadow" required />
               </div>
             </div>
-          </div>
-        </div>
-        <div class="description py-5">
-          <p>{{.Projects.Description}}</p>
+            <!-- Email End -->
+
+            <!-- Password Start -->
+            <div class="row mt-5">
+              <div class="col">
+                <label for="password" class="fw-medium">Password</label>
+                <input type="password" name="password" id="password" class="w-100 p-2 rounded-1 border-0 shadow" required />
+              </div>
+            </div>
+            <!-- Password End -->
+
+            <!-- Submit Button Start -->
+            <div class="submit-button d-flex justify-content-end mt-5">
+              <button type="sublit" class="btn btn-dark py-1 px-4 rounded-5 fw-medium text-end">submit</button>
+            </div>
+            <!-- Submit Button End -->
+          </form>
         </div>
       </div>
     </section>
-    <!-- Project Details End -->
+    <!-- Register End -->
 
-    <script src="public/js/project-detail.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
   </body>
 </html>
