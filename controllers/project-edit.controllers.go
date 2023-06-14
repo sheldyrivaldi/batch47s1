@@ -3,7 +3,9 @@ package controllers
 import (
 	"fmt"
 	"net/http"
+	"os"
 	"stage1/utilities"
+	"strconv"
 	"text/template"
 
 	"github.com/labstack/echo/v4"
@@ -11,7 +13,7 @@ import (
 
 func GetEditProjectController(c echo.Context) error {
 	// Menangkap Id dari Query Params
-	id := c.Param("id")
+	id, _ := strconv.Atoi(c.Param("id"))
 
 	// Get data dari database berdasarkan Id
 	data, err := utilities.FindOneProject(id)
@@ -39,7 +41,8 @@ func GetEditProjectController(c echo.Context) error {
 
 func PostEditedProjectController(c echo.Context) error {
 	// Menangkap Id dari Query Params
-	id := c.Param("id")
+
+	id, _ := strconv.Atoi(c.Param("id"))
 
 	// Menangkap value checkbox
 	reactjs := c.FormValue("reactjs")
@@ -54,14 +57,25 @@ func PostEditedProjectController(c echo.Context) error {
 	endDate := c.FormValue("end-date")
 	description := c.FormValue("description")
 	technologies := technologiesData
-	image := "project-list1.png"
+	image := c.Get("dataFile").(string)
+
+	//Data Sebelumnya
+	data, errDB := utilities.FindOneProject(id)
+	if errDB != nil {
+		return c.JSON(http.StatusInternalServerError, map[string]string{"message": errDB.Error()})
+	}
 
 	// Insert Updated Project to Database
 	err := utilities.UpdateProject(id, projectName, startDate, endDate, description, technologies, image)
 	if err != nil {
 		return c.JSON(http.StatusInternalServerError, map[string]string{"message": err.Error()})
 	} else {
-		fmt.Println("Project successfully updated!")
+		err := os.Remove(fmt.Sprintf("public/images/uploads/%s", data.Image))
+		if err != nil {
+			return c.JSON(http.StatusInternalServerError, map[string]string{"message": err.Error()})
+		} else {
+			fmt.Println("Project successfully updated!")
+		}
 	}
 
 	return c.Redirect(http.StatusMovedPermanently, "/")

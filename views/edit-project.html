@@ -148,7 +148,7 @@
                 <label class="fw-medium">Upload Image</label>
                 <buton type="button" class="upload-button w-100 border-0 d-flex justify-content-between pe-2 rounded shadow align-items-center">
                   <label class="bg-secondary-subtle text-body-tertiary px-3 py-2 shadow" for="upload-image">choose</label>
-                  <input type="file" name="upload-image" id="upload-image"/>
+                  <input type="file" name="upload-image" id="upload-image" value="/public/images/uploads/{{.Projects.Image}}"/>
                   <label for="upload-image" id="file-name" class="">{{.Projects.Image}}</label>
                   <label class="img" for="upload-image"><img src="/public/images/upload-image.png" alt="upload-image" /></label>
                 </button>

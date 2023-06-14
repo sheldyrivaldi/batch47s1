@@ -3,6 +3,7 @@ package controllers
 import (
 	"net/http"
 	"stage1/utilities"
+	"strconv"
 	"text/template"
 
 	"github.com/labstack/echo/v4"
@@ -10,7 +11,7 @@ import (
 
 func GetProjectDetailController(c echo.Context) error {
 	// Menangkap Id dari Query Params
-	id := c.Param("id")
+	id, _ := strconv.Atoi(c.Param("id"))
 
 	// Membuat Struct berdasarkan Id dari Query Params
 	data, err := utilities.FindOneProject(id)

@@ -4,6 +4,7 @@ import "time"
 
 type Projects struct {
 	Id            int       `form:"id"`
+	UserId        int       `form:"user_id"`
 	ProjectName   string    `form:"projectName"`
 	StartDate     string    `form:"startDate"`
 	EndDate       string    `form:"endDate"`

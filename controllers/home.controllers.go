@@ -11,15 +11,29 @@ import (
 )
 
 func GetHomeController(c echo.Context) error {
-	// Get data dari database
-	data, err := utilities.FindProjects()
-	if err != nil {
-		return c.JSON(http.StatusInternalServerError, map[string]string{"message": err.Error()})
-	}
 
 	// Session
 	sess, _ := session.Get("session", c)
 
+	// Get data dari database
+	var userId int
+	var data []models.Projects
+	var err error
+
+	if sess.Values["id"] != nil {
+		userId = sess.Values["id"].(int)
+		data, err = utilities.FindProjectsWithUserId(userId)
+		if err != nil {
+			return c.JSON(http.StatusInternalServerError, map[string]string{"message": err.Error()})
+		}
+	} else {
+		data, err = utilities.FindProjects()
+		if err != nil {
+			return c.JSON(http.StatusInternalServerError, map[string]string{"message": err.Error()})
+		}
+	}
+
+	//Define session value to session model
 	var sessionData models.SessionData
 
 	if sess.Values["isLoggedIn"] != true {

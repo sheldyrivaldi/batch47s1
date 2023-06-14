@@ -4,6 +4,7 @@ import (
 	"os"
 	"stage1/configs"
 	"stage1/controllers"
+	"stage1/middlewares"
 
 	"github.com/gorilla/sessions"
 	"github.com/labstack/echo-contrib/session"
@@ -35,8 +36,8 @@ func main() {
 	// Daftar Routes POST
 	e.POST("/register", controllers.PostRegisterController)
 	e.POST("/login", controllers.PostLoginController)
-	e.POST("/add-project", controllers.PostProjectController)
-	e.POST("/edit-project/:id", controllers.PostEditedProjectController)
+	e.POST("/add-project", middlewares.UploadImage(controllers.PostProjectController))
+	e.POST("/edit-project/:id", middlewares.UploadImage(controllers.PostEditedProjectController))
 	e.POST("/delete-project/:id", controllers.DeleteProjectController)
 	e.POST("/logout", controllers.PostLogoutController)
 

@@ -27,6 +27,14 @@ body {
 #projects {
   margin: 10px auto 100px auto;
 }
+.upload-image {
+  height: 200px;
+}
+.upload-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 .card-body .list-duration,
 .card-body .list-description {
   font-size: 12px;
